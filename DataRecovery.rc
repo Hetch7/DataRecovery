@@ -1,0 +1,359 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\DataRecovery.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 209, 50
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DataRecovery"
+FONT 11, "MS Shell Dlg", 700, 0, 0x80
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,14,20,20
+    LTEXT           "DataRecovery  version 2.4.7",IDC_APPVERSION,39,11,104,8,SS_NOPREFIX
+    LTEXT           "トキワ個別教育研究所 (C) 2010",IDC_TOKIWA,54,24,108,8
+    PUSHBUTTON      "OK",IDOK,152,7,50,14,WS_GROUP
+    LTEXT           "http://tokiwa.qee.jp/",IDC_URL,128,33,72,8,SS_NOTIFY
+    CTEXT           "おまけ",IDC_HIGAWARI,11,33,19,8,SS_NOTIFY
+END
+
+IDD_DATARECOVERY_DIALOG DIALOGEX 0, 0, 415, 223
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "DataRecovery"
+FONT 9, "MS Shell Dlg", 700, 0, 0x80
+BEGIN
+    CONTROL         "Tree1",IDC_TREDISKS,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | TVS_FULLROWSELECT | WS_BORDER | WS_TABSTOP,7,31,86,87,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "&Scan Files",IDC_BTNSCAN,7,12,86,15
+    EDITTEXT        IDC_EDITFILENAME,11,138,79,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Recovery",IDC_BTNDATARECOVERY,7,203,86,15
+    PUSHBUTTON      "&Wipe",IDC_BTNDELETE,40,171,50,15
+    CONTROL         "List1",IDC_LSTFILES,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_EDITLABELS | WS_BORDER,100,31,308,166
+    LTEXT           "Deleted Files",IDC_LBLDELFILES,314,205,45,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_EDTDELFILES,362,203,46,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
+    CTEXT           "Partial File Name",IDC_LBL_PFN,10,128,78,8
+    CONTROL         "",IDC_PROGSEARCH,"msctls_progress32",WS_BORDER | 0x1,97,12,311,13
+    CONTROL         "",IDC_PROGDATARECOVERY,"msctls_progress32",WS_BORDER | 0x1,96,203,214,13
+    EDITTEXT        IDC_EDTTOTFILES,290,0,62,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_EDTTOTALCLUSTERS,371,0,34,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_EDTSLASH,357,0,13,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+END
+
+IDD_LOADMFT DIALOGEX 0, 0, 129, 44
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "しばしお待ちください・・・"
+FONT 9, "MS UI Gothic", 700, 0, 0x80
+BEGIN
+    LTEXT           "MFTをメモリにロードしています",IDC_WAITMSG,21,18,90,8
+END
+
+IDD_TOOLS_INST DIALOGEX 0, 0, 299, 331
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "ツールのインストール"
+FONT 9, "MS Shell Dlg", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,233,307,50,14
+    GROUPBOX        "スタティック",IDC_STATIC_YAHOO,17,37,266,70
+    CONTROL         "Yahoo!ツールバーをインストールする (利用規約に同意)",IDC_CHECK_YAHOO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,27,188,10
+    LTEXT           "Yahoo!ツールバーは、ブラウザに追加機能としてインストール（組み込み）して使うソフトウエアです。Yahoo!ツールバーをインストールすると、いつでもどこでもすぐにYahoo!のインターネット検索がご利用いただけます。検索以外にもブックマークやオークション、メールなどYahoo!JAPANのサービスと連携した便利な機能や「フィッシング警告機能」など役立つ機能が多数搭載されており、全て無料でご利用になれます。",IDC_STATIC,27,49,245,41
+    LTEXT           "利用規約   Y",IDC_KIYAKU_YAHOO,238,93,32,8,SS_NOTIFY
+    CONTROL         "JWord プラグインをインストールする (利用規約に同意)",IDC_CHECK_JWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,115,185,10
+    GROUPBOX        "スタティック",IDC_STATIC_JWORD,16,125,267,75
+    LTEXT           "JWord は特定のキーワードで目的の Web サイトに素早くアクセスするためのサービスです。膨大なキーワードを登録しているため、会社や商品やサービスなどの名前をそのまま日本語で入力すれば、該当する Web ページを直接表示します。この JWord プラグインは、Internet Explorer のアドレスバーに入力したキーワードで JWord 検索を実行するためのプログラムです。インストールもアップデートも無料であり、ユーザー登録などの手続きも必要ありません。",IDC_STATIC,26,137,242,48
+    LTEXT           "詳細   J",IDC_JWORD_URL,208,187,17,8,SS_NOTIFY
+    CONTROL         "次回からこのダイアログを表示しない",IDC_NOMORE_TOOLS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,65,309,112,10
+    LTEXT           "詳細   Y",IDC_URL_YAHOO,210,93,17,8,SS_NOTIFY
+    LTEXT           "利用規約   J",IDC_KIYAKU_JWORD,238,187,30,8,SS_NOTIFY
+    LTEXT           "トキワ個別教育研究所は以下のツールのインストールをお勧めします",IDC_STATIC,16,14,187,8
+    CONTROL         "Kingsoft Internet Security U をダウンロードする",IDC_CHECK_KISU,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,207,176,10
+    GROUPBOX        "スタティック",IDC_STATIC_KISU,16,218,267,81
+    LTEXT           "Kingsoft Internet Security U はウイルス対策、スパイウェア駆除、ファイヤーウォール、フィッシング詐欺対策、迷惑メール対策などの機能を備えた統合型セキュリティソフトで、 オンライン信用認証、セキュリティ診断、ブートクリーン技術、ウェブディフェンダーなど、いくつかの新機能が搭載され、パソコンのセキュリティをより強化できるようになりました。 広告を表示する代わりに無料ですべての機能を継続利用できます。ただし、他のセキュリティソフトのアンインストールが必要です。",IDC_STATIC,27,233,250,49
+    LTEXT           "詳細   K",IDC_KISU_URL,249,286,15,8,SS_NOTIFY
+END
+
+IDD_YAHOO_KIYAKU DIALOGEX 0, 0, 324, 276
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Yahoo!ツールバー利用規約"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,135,255,50,14
+    EDITTEXT        IDC_EDIT1,12,11,300,239,ES_MULTILINE | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,4,7,0
+ PRODUCTVERSION 2,4,7,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "ゴミ箱からも削除したファイルを復元します"
+            VALUE "CompanyName", "トキワ個別教育研究所"
+            VALUE "FileDescription", "DataRecovery "
+            VALUE "FileVersion", "2, 4, 7, 0"
+            VALUE "InternalName", "DataRecovery"
+            VALUE "LegalCopyright", "Copyright (C) 2010 トキワ個別教育研究所"
+            VALUE "OriginalFilename", "DataRecovery.EXE"
+            VALUE "ProductName", "DataRecovery Application"
+            VALUE "ProductVersion", "2, 4, 7, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 43
+    END
+
+    IDD_LOADMFT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 37
+    END
+
+    IDD_TOOLS_INST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 292
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 324
+    END
+
+    IDD_YAHOO_KIYAKU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 317
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 269
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU_RENAME MENU 
+BEGIN
+    POPUP "ファイル名の変更"
+    BEGIN
+        MENUITEM "ファイル名の変更",                    ID_32774
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "バージョン情報(&A)"
+    IDS_CHANGEFOLDERMSG     "リカバリされるデータと同じドライブだと\nデータが上書きされてうまくリカバリ出来ない場合があります。\nそれでもいいですか?"
+    IDS_BTNSCAN             "スキャン(&S)"
+    IDS_BTNRECOVERY         "リカバリ(&R)"
+    IDS_STATIC_PFN          "ファイル名の文字列"
+    IDS_STATIC_DF           "削除ファイル"
+    IDS_CLM_FILE            "ファイル"
+    IDS_CLM_FOLDER          "フォルダ"
+    IDS_CLM_TYPE            "種類"
+    IDS_CLM_SIZE            "サイズ"
+    IDS_CLM_MODIFIED        "更新日時"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CLM_ATTRIBUTE       "属性"
+    IDS_TREE_DRIVE          "ドライブ"
+    IDS_BTNSTOPPING         "停止中です・・・"
+    IDS_BTNCANCEL           "キャンセル(&C)"
+    IDS_MSG_WHERE_TO_RECOVER "どこにリカバリするか選んでください"
+    IDS_MSG_SELECT_DRIVE    "スキャンするドライブを選んでください"
+    IDS_MSG_SELECT_FILE     "リカバリするファイル/フォルダを選んでください"
+    IDS_ERRMSG_READ_ROOTDIR "RootDirectoryを読み込めませんでした"
+    IDS_ERRMSG_READ_DIRECTORY "Directoryを読み込めませんでした"
+    IDS_ABOUTBOX_TITLE      "バージョン情報"
+    IDS_ABOUTBOX_TOKIWA     "トキワ個別教育研究所 (C) 2010"
+    IDS_WAITBOX_TITLE       "お待ちください・・・"
+    IDS_WAITBOX_MSG1        "MFTをメモリにロードしています"
+    IDS_MSG_FILE_ALREADY_EXIST "同名のファイルが既に存在します\n上書きしますか?\n"
+    IDS_ABOUTBOX_TOKIWA_URL "http://tokiwa.qee.jp/"
+    IDS_FOLDER_UNKNOWN      "<不明>"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_UPDATE_SUCCESS  "Update完了! 新バージョンは次回起動時から有効になります"
+    IDS_MSG_CONNECT_FAILURE "インターネット接続失敗! しばらくしてからやり直してください"
+    IDS_MSG_ALREADY_UPDATED "既に最新バージョンです"
+    IDS_MSG_RECOVERY_DONE   "リカバリ完了!\n\n必ずファイルの中身を確かめてください"
+    IDS_BTNDELETE           "消去(&W)"
+    IDS_MSG_SELECT_FILE_DELETE "消去するファイル/フォルダを選んでください"
+    IDS_MSG_CONFIRM_DELETE  "ファイルは二度とリカバリできなくなります\n\n本当に消去してもよろしいんですね?"
+    IDS_MSG_MORE_SCAN       "目的のファイルは見つかりましたか?\n\n通常スキャンで見つからなくても\n""空きクラスタスキャン""で見つかる場合があります。\nでもこれは少し時間がかかります。\nさらに空きクラスタをスキャンしますか?"
+    IDS_ERRMSG_READ_ECLUSTER "空きクラスタを読み込めませんでした"
+    IDS_ERRMSG_TOO_MUCH_MFT "MFTが細分化されすぎています!"
+    IDS_ERRMSG_READ_BOOT_SECTOR "ブートセクタを読み込めませんでした!"
+    IDS_ERRMSG_ALLOCATE_MFT_MEMORY "MFT領域をメモリに確保できませんでした!"
+    IDS_MSG_CLOSE_ALL_FILE  "ドライブを使用中のため消去できません。\nドライブを使用していると思われるプログラムまたはウィンドウを閉じてから再試行して下さい。"
+    IDS_MSG_MORE_SCAN_NTFS  "目的のファイルは見つかりましたか?\n\n通常スキャンで見つからなくても\n""完全スキャン""で見つかる場合があります。\nでもこれは非常に時間がかかります。\n改めて完全スキャンしますか?"
+    IDS_MSG_NOT_WIPE_VISTA_SYSTEM "Vistaでは安全のためシステムドライブのファイルは消去できません"
+    IDS_ERRMSG_RUN_AS_ADMINISTRATOR "管理者として実行してください"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_MEMORY_ALLOCATE_LIMIT 
+                            "完全スキャンを続行するにはいったんリストをクリアしなければなりません。\nここまでのリストからお探しのファイルを探してみてください。\n完全スキャンを続行しますか?"
+    IDS_ERRMSG_UNKNOWN_FILESYSTEM "不明なファイルシステムです!"
+    IDS_ERRMSG_READ_BPB     "BPBを読み込めませんでした!"
+    IDS_WAITBOX_MSG3        "インストーラをダウンロード中"
+    IDS_WAITBOX_MSG2        "ファイルを消去しています"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (米国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\DataRecovery.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 英語 (米国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\DataRecovery.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
