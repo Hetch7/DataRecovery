@@ -199,8 +199,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</BrowseInformation>
     </ClCompile>
-    <ClCompile Include="ToolsDlg.cpp" />
-    <ClCompile Include="YahooKiyakuDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DataRecovery.rc" />
@@ -212,7 +210,6 @@
     <ClInclude Include="FATDrive.h" />
     <ClInclude Include="GradientStatic.h" />
     <ClInclude Include="GroupCheck.h" />
-    <ClInclude Include="jwd_detector.h" />
     <ClInclude Include="LinkStatic.h" />
     <ClInclude Include="LoadMFTDlg.h" />
     <ClInclude Include="MFTRecord.h" />
@@ -221,9 +218,6 @@
     <ClInclude Include="RoundButton2.h" />
     <ClInclude Include="RoundButtonStyle.h" />
     <ClInclude Include="StdAfx.h" />
-    <ClInclude Include="ToolsDlg.h" />
-    <ClInclude Include="yahoo_detector.h" />
-    <ClInclude Include="YahooKiyakuDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\DataRecovery.ico" />

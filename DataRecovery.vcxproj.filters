@@ -33,9 +33,6 @@
     <ClCompile Include="GroupCheck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LinkStatic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LoadMFTDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -54,10 +51,7 @@
     <ClCompile Include="StdAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ToolsDlg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="YahooKiyakuDlg.cpp">
+    <ClCompile Include="LinkStatic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -85,12 +79,6 @@
     <ClInclude Include="GroupCheck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="jwd_detector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LinkStatic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LoadMFTDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -112,13 +100,7 @@
     <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ToolsDlg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="yahoo_detector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="YahooKiyakuDlg.h">
+    <ClInclude Include="LinkStatic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

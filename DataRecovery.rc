@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 日本語 resources
+// 日本語 (日本) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
-#ifdef _WIN32
 LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
 #pragma code_page(932)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -29,6 +27,7 @@ LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\DataRecovery.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -41,10 +40,10 @@ CAPTION "DataRecovery"
 FONT 11, "MS Shell Dlg", 700, 0, 0x80
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,14,20,20
-    LTEXT           "DataRecovery  version 2.4.7",IDC_APPVERSION,39,11,104,8,SS_NOPREFIX
-    LTEXT           "トキワ個別教育研究所 (C) 2010",IDC_TOKIWA,54,24,108,8
+    LTEXT           "DataRecovery  version 2.4.8",IDC_APPVERSION,39,11,102,8,SS_NOPREFIX
+    LTEXT           "トキワ個別教育研究所 (C) 2025",IDC_TOKIWA,54,24,108,8
     PUSHBUTTON      "OK",IDOK,152,7,50,14,WS_GROUP
-    LTEXT           "http://tokiwa.qee.jp/",IDC_URL,128,33,72,8,SS_NOTIFY
+    LTEXT           "https://tokiwa.qc-plus.jp/",IDC_URL,111,35,91,8,SS_NOTIFY
     CTEXT           "おまけ",IDC_HIGAWARI,11,33,19,8,SS_NOTIFY
 END
 
@@ -63,8 +62,8 @@ BEGIN
     LTEXT           "Deleted Files",IDC_LBLDELFILES,314,205,45,8,0,WS_EX_RIGHT
     EDITTEXT        IDC_EDTDELFILES,362,203,46,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
     CTEXT           "Partial File Name",IDC_LBL_PFN,10,128,78,8
-    CONTROL         "",IDC_PROGSEARCH,"msctls_progress32",WS_BORDER | 0x1,97,12,311,13
-    CONTROL         "",IDC_PROGDATARECOVERY,"msctls_progress32",WS_BORDER | 0x1,96,203,214,13
+    CONTROL         "",IDC_PROGSEARCH,"msctls_progress32",PBS_SMOOTH | WS_BORDER,97,12,311,13
+    CONTROL         "",IDC_PROGDATARECOVERY,"msctls_progress32",PBS_SMOOTH | WS_BORDER,96,203,214,13
     EDITTEXT        IDC_EDTTOTFILES,290,0,62,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDTTOTALCLUSTERS,371,0,34,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDTSLASH,357,0,13,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
@@ -76,40 +75,6 @@ CAPTION "しばしお待ちください・・・"
 FONT 9, "MS UI Gothic", 700, 0, 0x80
 BEGIN
     LTEXT           "MFTをメモリにロードしています",IDC_WAITMSG,21,18,90,8
-END
-
-IDD_TOOLS_INST DIALOGEX 0, 0, 299, 331
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
-CAPTION "ツールのインストール"
-FONT 9, "MS Shell Dlg", 400, 0, 0x80
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,233,307,50,14
-    GROUPBOX        "スタティック",IDC_STATIC_YAHOO,17,37,266,70
-    CONTROL         "Yahoo!ツールバーをインストールする (利用規約に同意)",IDC_CHECK_YAHOO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,27,188,10
-    LTEXT           "Yahoo!ツールバーは、ブラウザに追加機能としてインストール（組み込み）して使うソフトウエアです。Yahoo!ツールバーをインストールすると、いつでもどこでもすぐにYahoo!のインターネット検索がご利用いただけます。検索以外にもブックマークやオークション、メールなどYahoo!JAPANのサービスと連携した便利な機能や「フィッシング警告機能」など役立つ機能が多数搭載されており、全て無料でご利用になれます。",IDC_STATIC,27,49,245,41
-    LTEXT           "利用規約   Y",IDC_KIYAKU_YAHOO,238,93,32,8,SS_NOTIFY
-    CONTROL         "JWord プラグインをインストールする (利用規約に同意)",IDC_CHECK_JWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,115,185,10
-    GROUPBOX        "スタティック",IDC_STATIC_JWORD,16,125,267,75
-    LTEXT           "JWord は特定のキーワードで目的の Web サイトに素早くアクセスするためのサービスです。膨大なキーワードを登録しているため、会社や商品やサービスなどの名前をそのまま日本語で入力すれば、該当する Web ページを直接表示します。この JWord プラグインは、Internet Explorer のアドレスバーに入力したキーワードで JWord 検索を実行するためのプログラムです。インストールもアップデートも無料であり、ユーザー登録などの手続きも必要ありません。",IDC_STATIC,26,137,242,48
-    LTEXT           "詳細   J",IDC_JWORD_URL,208,187,17,8,SS_NOTIFY
-    CONTROL         "次回からこのダイアログを表示しない",IDC_NOMORE_TOOLS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,65,309,112,10
-    LTEXT           "詳細   Y",IDC_URL_YAHOO,210,93,17,8,SS_NOTIFY
-    LTEXT           "利用規約   J",IDC_KIYAKU_JWORD,238,187,30,8,SS_NOTIFY
-    LTEXT           "トキワ個別教育研究所は以下のツールのインストールをお勧めします",IDC_STATIC,16,14,187,8
-    CONTROL         "Kingsoft Internet Security U をダウンロードする",IDC_CHECK_KISU,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,207,176,10
-    GROUPBOX        "スタティック",IDC_STATIC_KISU,16,218,267,81
-    LTEXT           "Kingsoft Internet Security U はウイルス対策、スパイウェア駆除、ファイヤーウォール、フィッシング詐欺対策、迷惑メール対策などの機能を備えた統合型セキュリティソフトで、 オンライン信用認証、セキュリティ診断、ブートクリーン技術、ウェブディフェンダーなど、いくつかの新機能が搭載され、パソコンのセキュリティをより強化できるようになりました。 広告を表示する代わりに無料ですべての機能を継続利用できます。ただし、他のセキュリティソフトのアンインストールが必要です。",IDC_STATIC,27,233,250,49
-    LTEXT           "詳細   K",IDC_KISU_URL,249,286,15,8,SS_NOTIFY
-END
-
-IDD_YAHOO_KIYAKU DIALOGEX 0, 0, 324, 276
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
-CAPTION "Yahoo!ツールバー利用規約"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "閉じる",IDOK,135,255,50,14
-    EDITTEXT        IDC_EDIT1,12,11,300,239,ES_MULTILINE | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -138,12 +103,12 @@ BEGIN
             VALUE "Comments", "ゴミ箱からも削除したファイルを復元します"
             VALUE "CompanyName", "トキワ個別教育研究所"
             VALUE "FileDescription", "DataRecovery "
-            VALUE "FileVersion", "2, 4, 7, 0"
+            VALUE "FileVersion", "2, 4, 8"
             VALUE "InternalName", "DataRecovery"
-            VALUE "LegalCopyright", "Copyright (C) 2010 トキワ個別教育研究所"
+            VALUE "LegalCopyright", "Copyright (C) 2025 トキワ個別教育研究所"
             VALUE "OriginalFilename", "DataRecovery.EXE"
             VALUE "ProductName", "DataRecovery Application"
-            VALUE "ProductVersion", "2, 4, 7, 0"
+            VALUE "ProductVersion", "2, 4, 8"
         END
     END
     BLOCK "VarFileInfo"
@@ -159,7 +124,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -176,22 +141,6 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 37
     END
-
-    IDD_TOOLS_INST, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 292
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 324
-    END
-
-    IDD_YAHOO_KIYAKU, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 317
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 269
-    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -201,7 +150,7 @@ END
 // Menu
 //
 
-IDR_MENU_RENAME MENU 
+IDR_MENU_RENAME MENU
 BEGIN
     POPUP "ファイル名の変更"
     BEGIN
@@ -212,10 +161,21 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "バージョン情報(&A)"
     IDS_CHANGEFOLDERMSG     "リカバリされるデータと同じドライブだと\nデータが上書きされてうまくリカバリ出来ない場合があります。\nそれでもいいですか?"
@@ -230,7 +190,7 @@ BEGIN
     IDS_CLM_MODIFIED        "更新日時"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_CLM_ATTRIBUTE       "属性"
     IDS_TREE_DRIVE          "ドライブ"
@@ -242,15 +202,15 @@ BEGIN
     IDS_ERRMSG_READ_ROOTDIR "RootDirectoryを読み込めませんでした"
     IDS_ERRMSG_READ_DIRECTORY "Directoryを読み込めませんでした"
     IDS_ABOUTBOX_TITLE      "バージョン情報"
-    IDS_ABOUTBOX_TOKIWA     "トキワ個別教育研究所 (C) 2010"
+    IDS_ABOUTBOX_TOKIWA     "トキワ個別教育研究所 (C) 2025"
     IDS_WAITBOX_TITLE       "お待ちください・・・"
     IDS_WAITBOX_MSG1        "MFTをメモリにロードしています"
     IDS_MSG_FILE_ALREADY_EXIST "同名のファイルが既に存在します\n上書きしますか?\n"
-    IDS_ABOUTBOX_TOKIWA_URL "http://tokiwa.qee.jp/"
+    IDS_ABOUTBOX_TOKIWA_URL "https://tokiwa.qc-plus.jp/"
     IDS_FOLDER_UNKNOWN      "<不明>"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MSG_UPDATE_SUCCESS  "Update完了! 新バージョンは次回起動時から有効になります"
     IDS_MSG_CONNECT_FAILURE "インターネット接続失敗! しばらくしてからやり直してください"
@@ -270,7 +230,7 @@ BEGIN
     IDS_ERRMSG_RUN_AS_ADMINISTRATOR "管理者として実行してください"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MSG_MEMORY_ALLOCATE_LIMIT 
                             "完全スキャンを続行するにはいったんリストをクリアしなければなりません。\nここまでのリストからお探しのファイルを探してみてください。\n完全スキャンを続行しますか?"
@@ -280,7 +240,7 @@ BEGIN
     IDS_WAITBOX_MSG2        "ファイルを消去しています"
 END
 
-#endif    // 日本語 resources
+#endif    // 日本語 (日本) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -288,10 +248,8 @@ END
 // 英語 (米国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

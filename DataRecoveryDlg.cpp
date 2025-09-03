@@ -22,7 +22,8 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
+//static char THIS_FILE[] = __FILE__;
+static char THIS_FILE[sizeof(__FILE__)] = __FILE__;
 #endif
 
 #define BIF_NEWDIALOGSTYLE 0x0040
@@ -454,12 +455,7 @@ void CDataRecoveryDlg::OnDestroy()
 	if(!g_bIsNT)
 		goto SkipSetup;
 
-	g_bJWordLiving = IsJWordLiving();
-	g_bYahooLiving = IsYahooLiving();
-
-	//if (!g_bJWordLiving || !g_bYahooLiving)
-	//{
-		if( AfxGetApp()->m_pszProfileName ) {
+	if( AfxGetApp()->m_pszProfileName ) {
 			delete ((void*)AfxGetApp()->m_pszProfileName);
 			AfxGetApp()->m_pszProfileName = new char[MAX_PATH];
 			if( !AfxGetApp()->m_pszProfileName ) {
@@ -470,86 +466,6 @@ void CDataRecoveryDlg::OnDestroy()
 			strcat_s((LPTSTR)AfxGetApp()->m_pszProfileName, MAX_PATH, "\\DataRecovery.ini");
 		}
 
-		int nNomoreTools = AfxGetApp()->GetProfileInt( "Setting", "nomoreTools", 0);
-		if(nNomoreTools == 0)
-		{
-			ToolsDlg dlg;
-
-			int nRet = dlg.DoModal();
-			if(nRet == 1 || nRet == 4 || nRet == 5 || nRet == 7) //Yahooインストール
-			{
-				CAutoUpdater updater;
-				int result = updater.CheckForFile("http://tokiwa.qee.jp/download/DataRecovery/", "yt7j_jwtkw.exe");
-				switch(result)
-				{
-				case CAutoUpdater::InternetConnectFailure :
-				case CAutoUpdater::InternetSessionFailure :
-					AfxMessageBox(IDS_MSG_CONNECT_FAILURE, MB_ICONINFORMATION|MB_OK);
-					goto instJWord;
-					break;
-				case CAutoUpdater::FileDownloadFailure :
-					AfxMessageBox(_T("FileDownloadFailure!"), MB_OK|MB_ICONERROR);
-					goto instJWord;
-					break;
-				default :
-					break;
-				}
-				ShellExecute( NULL, "open", "yt7j_jwtkw.exe", "/S", "", SW_HIDE );
-			}
-instJWord:
-			if(nRet == 2 || nRet == 4 || nRet == 6 || nRet == 7) //JWordインストール
-			{
-				// check if JWord Setupfile exists, if not, download it!
-				CAutoUpdater updater;
-				int result = updater.CheckForFile("http://tokiwa.qee.jp/download/DataRecovery/", "jword2setup_common.exe");
-				switch(result)
-				{
-				case CAutoUpdater::InternetConnectFailure :
-				case CAutoUpdater::InternetSessionFailure :
-					AfxMessageBox(IDS_MSG_CONNECT_FAILURE, MB_ICONINFORMATION|MB_OK);
-					goto instKISU;
-					break;
-				case CAutoUpdater::FileDownloadFailure :
-					AfxMessageBox(_T("FileDownloadFailure!"), MB_OK|MB_ICONERROR);
-					goto instKISU;
-					break;
-				default :
-					break;
-				}
-				
-				ShellExecute( NULL, "open", "jword2setup_common.exe", "/S tokiwa tokiwa__soft", "", SW_HIDE );
-			}
-instKISU:
-			if(nRet == 3 || nRet == 5 || nRet == 6 || nRet == 7) //KISUインストール
-			{
-				// check if KISU Setupfile exists, if not, download it!
-				CAutoUpdater updater;
-
-				CLoadMFTDlg* loadMFTDlg = new CLoadMFTDlg(3);
-				loadMFTDlg->Create(IDD_LOADMFT); // show please-wait dialog
-
-				int result = updater.CheckForFile("http://download.kingsoft.jp/package_kis/", "KISU_OEM_tokiwa_117_68.exe");
-				switch(result)
-				{
-				case CAutoUpdater::InternetConnectFailure :
-				case CAutoUpdater::InternetSessionFailure :
-					loadMFTDlg->DestroyWindow();
-					AfxMessageBox(IDS_MSG_CONNECT_FAILURE, MB_ICONINFORMATION|MB_OK);
-					goto SkipSetup;
-					break;
-				case CAutoUpdater::FileDownloadFailure :
-					loadMFTDlg->DestroyWindow();
-					AfxMessageBox(_T("FileDownloadFailure!"), MB_OK|MB_ICONERROR);
-					goto SkipSetup;
-					break;
-				default :
-					break;
-				}
-				loadMFTDlg->DestroyWindow();
-				ShellExecute( NULL, "open", "KISU_OEM_tokiwa_117_68.exe", NULL, NULL, SW_SHOWNORMAL);
-			}
-		}
-//	}
 
 SkipSetup:
 
@@ -2429,7 +2345,7 @@ void CAboutDlg::OnBnClickedOk()
 	if(g_bIsNT)
 	{
 		CAutoUpdater updater;
-		int result = updater.CheckForUpdate("http://tokiwa.qee.jp/download/DataRecovery/");
+		int result = updater.CheckForUpdate("https://tokiwa.qc-plus.jp/tokiwa/download/DataRecovery/");
 		switch(result)
 		{
 		case CAutoUpdater::Success :

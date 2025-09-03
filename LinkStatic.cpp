@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "LinkStatic.h"
-#include "YahooKiyakuDlg.h"
 
 // CLinkStatic
 
@@ -39,47 +38,30 @@ void CLinkStatic::OnLButtonDown(UINT nFlags, CPoint point)
 	GetWindowText(cstrJump);
 	DWORD dwVersion = GetVersion();
 
-	if(cstrJump == "利用規約   Y")
-	{
-		YahooKiyakuDlg dlg;
-		dlg.DoModal();
-	}
+	if(cstrJump == "おまけ")
+		cstrJump = "https://tokiwa.qc-plus.jp/higawari/index.html";
+
+	// Check Windows Version 
+	if (dwVersion < 0x80000000)  // Windows NT/2000/XP
+		::ShellExecute(NULL, _T("open"), cstrJump, NULL, NULL, SW_SHOWNORMAL); 
 	else
-	{
-		if(cstrJump == "利用規約   J")
-			cstrJump = "http://www.jword.jp/install/agreement.htm";
+	{		
+		_stprintf_s(strJump, 255, " %s", cstrJump); // need first white space before URL
+		CString strCommand = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
 
-		if(cstrJump == "詳細   Y")
-			cstrJump = "http://toolbar.yahoo.co.jp/";
-		if(cstrJump == "詳細   J")
-			cstrJump = "http://www.jword.jp/intro/";
-		if(cstrJump == "詳細   K")
-			cstrJump = "http://download.kingsoft.jp/is/?partner=kingsoft_063";
+		PROCESS_INFORMATION pi;
+		STARTUPINFO si;
+		ZeroMemory(&si,sizeof(si));
+		si.cb=sizeof(si);
 
-		if(cstrJump == "おまけ")
-			cstrJump = "http://higawari.qee.jp/higawari.html";
+		CreateProcess(strCommand, strJump, NULL,NULL,FALSE,NORMAL_PRIORITY_CLASS,
+			NULL,NULL,&si,&pi);
 
-		// Check Windows Version 
-		if (dwVersion < 0x80000000)  // Windows NT/2000/XP
-			::ShellExecute(NULL, _T("open"), cstrJump, NULL, NULL, SW_SHOWNORMAL); 
-		else
-		{		
-			_stprintf_s(strJump, 255, " %s", cstrJump); // need first white space before URL
-			CString strCommand = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
-
-			PROCESS_INFORMATION pi;
-			STARTUPINFO si;
-			ZeroMemory(&si,sizeof(si));
-			si.cb=sizeof(si);
-
-			CreateProcess(strCommand, strJump, NULL,NULL,FALSE,NORMAL_PRIORITY_CLASS,
-				NULL,NULL,&si,&pi);
-
-			CloseHandle(pi.hThread);
-		}
+		CloseHandle(pi.hThread);
 	}
 	CStatic::OnLButtonDown(nFlags, point);
 }
+
 HBRUSH CLinkStatic::CtlColor(CDC* pDC, UINT nCtlColor)
 {
 	// 最初に呼ばれた時だけフォントの設定をする

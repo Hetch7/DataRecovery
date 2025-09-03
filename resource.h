@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by DataRecovery.rc
+// Microsoft Visual C++ で生成されたインクルード ファイル。
+// DataRecovery.rc で使用
 //
 #define IDM_ABOUTBOX                    0x0010
 #define IDD_ABOUTBOX                    100
@@ -63,8 +63,6 @@
 #define IDS_WAITBOX_MSG3                147
 #define IDS_WAITBOX_MSG2                148
 #define IDR_MENU_RENAME                 151
-#define IDD_TOOLS_INST                  152
-#define IDD_YAHOO_KIYAKU                153
 #define IDC_TREDISKS                    1000
 #define IDC_LSTFILES                    1001
 #define IDC_BTNSCAN                     1002
@@ -81,7 +79,6 @@
 #define IDC_TOKIWA                      1022
 #define IDC_WAITMSG                     1023
 #define IDC_APPVERSION                  1024
-#define IDC_EDIT1                       1026
 #define IDC_BUTTON1                     1028
 #define IDC_BTNDELETE                   1028
 #define IDC_HIGAWARI                    1029
@@ -89,25 +86,13 @@
 #define IDC_EDTTOTALCLUSTERS            1031
 #define IDC_EDIT2                       1032
 #define IDC_EDTSLASH                    1032
-#define IDC_CHECK_YAHOO                 1033
-#define IDC_STATIC_YAHOO                1034
-#define IDC_KIYAKU_YAHOO                1035
-#define IDC_CHECK_JWORD                 1037
-#define IDC_STATIC_JWORD                1038
-#define IDC_JWORD_URL                   1039
-#define IDC_NOMORE_TOOLS                1040
-#define IDC_URL_YAHOO                   1041
-#define IDC_KIYAKU_JWORD                1042
-#define IDC_CHECK_KISU                  1043
-#define IDC_STATIC_KISU                 1044
-#define IDC_KISU_URL                    1045
 #define ID_32774                        32774
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        155
+#define _APS_NEXT_RESOURCE_VALUE        156
 #define _APS_NEXT_COMMAND_VALUE         32775
 #define _APS_NEXT_CONTROL_VALUE         1046
 #define _APS_NEXT_SYMED_VALUE           101
