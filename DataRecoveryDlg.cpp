@@ -10,7 +10,7 @@
 #include "LoadMFTDlg.h"
 #include <shlwapi.h>
 #include <winioctl.h>
-
+	
 //#include <Winnetwk.h> //ネットワークドライブ接続
 
 
