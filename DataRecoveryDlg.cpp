@@ -11,11 +11,6 @@
 #include <shlwapi.h>
 #include <winioctl.h>
 
-#include "jwd_detector.h"
-#include "yahoo_detector.h"
-
-#include "ToolsDlg.h"
-
 //#include <Winnetwk.h> //ネットワークドライブ接続
 
 
