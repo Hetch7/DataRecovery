@@ -5,10 +5,11 @@
 #include "stdafx.h"
 #include "MFTRecord.h"
 #include <winioctl.h>
+#include <new> // std::bad_alloc ‚ðŽg—p‚·‚é‚½‚ß‚É
 
 #ifdef _DEBUG
 #undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
+static char THIS_FILE[sizeof(__FILE__)] = __FILE__;
 #define new DEBUG_NEW
 #endif
 
@@ -410,8 +411,20 @@ int CMFTRecord::ExtractData(NTFS_ATTRIBUTE &ntfsAttr, BYTE *&puchData, DWORD &dw
 		// ATTR_STANDARD size may not be correct
 		dwDataLen = (DWORD)ntfsAttr.Attr.NonResident.n64RealSize;
 
+		const LONGLONG MAX_ALLOC_SIZE = 1024 * 1024 * 1024; // 1GB
+		if (ntfsAttr.Attr.NonResident.n64AllocSize > MAX_ALLOC_SIZE) {
+			AfxMessageBox(_T("Allocation size is too large ( > 1GB). The MFT record may be corrupted."), MB_OK | MB_ICONERROR);
+			return ERROR_FILE_NOT_FOUND;
+		}
+
 		// allocate for reading data
-		puchData = new BYTE[(UINT)ntfsAttr.Attr.NonResident.n64AllocSize];
+		try {
+			puchData = new BYTE[(UINT)ntfsAttr.Attr.NonResident.n64AllocSize];
+		}
+		catch (const std::bad_alloc&) {
+			AfxMessageBox(_T("Failed to allocate memory. The MFT appears to be too large."), MB_OK | MB_ICONERROR);
+			return ERROR_OUTOFMEMORY;
+		}
 
 		BYTE chLenOffSz; // length & offset sizes
 		BYTE chLenSz; // length size
